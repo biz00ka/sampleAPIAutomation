@@ -31,7 +31,9 @@ public class GetTestsSample
 		System.out.println("Hello world..");
 		Response res= spa.getListOfUsers();
 		System.out.println(res.asPrettyString());
+		
 		Assert.assertEquals(res.getStatusCode(), HttpStatus.SC_OK,"Unable to find the User.");
+		
 	}
 	
 	

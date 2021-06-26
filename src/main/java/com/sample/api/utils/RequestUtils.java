@@ -3,6 +3,8 @@ package com.sample.api.utils;
 import java.util.Map;
 
 import com.sample.api.constants.Endpoint;
+import com.sample.api.pojos.User;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -58,6 +60,19 @@ public class RequestUtils {
 				.headers(header)
 				.queryParams(params)
 				.get(endPoint)
+				.andReturn();
+		
+		return res;
+	}
+	
+	
+	public Response postRequest(String endPoint, Object obj)
+	{
+		Response res= RestAssured
+				.given()
+				.contentType(ContentType.JSON)
+				.body(obj)
+				.post(endPoint)
 				.andReturn();
 		
 		return res;

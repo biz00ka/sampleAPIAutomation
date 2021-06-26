@@ -34,5 +34,15 @@ public class SamplePojoAction {
 	}
 	
 	
+	public Response postCreateUser()
+	{
+		endPoint=Endpoint.POST_CREATE_USERS;
+		User user= new User();
+		user.setName("Test Data One");
+		user.setJob("Mechanic");
+		Response res= req.postRequest(endPoint, user);
+		return res;
+	}
+	
 	
 }
